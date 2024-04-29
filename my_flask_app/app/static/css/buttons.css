@@ -1,0 +1,64 @@
+.btn {
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    padding: 7px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 3px;
+    transition-duration: .6s
+}
+
+.btn-primary {
+    background: #E50010; /* Ana renk */
+    color: #fff; /* Metin rengi */
+    border: 1px solid #E50010; /* Kenarlık */
+    border-radius: 15px; /* Köşeleri yuvarlaklaştırır */
+    padding: 7px 14px; /* Sabit iç boşluk */
+    transition: background 0.3s, color 0.3s; /* Yumuşak geçiş */
+}
+
+.btn-primary:hover {
+    background: #ffffff; /* Hover rengi */
+    color: #E50010; /* Hover metin rengi */
+    border: 1px solid #E50010; /* Kenarlık aynı kalsın */
+}
+
+
+
+.btn-outline-primary {
+    background: hsl(0, 0%, 100%);
+    color: #FC997C;
+    border: 2px solid #000000;
+}
+
+.btn-outline-primary:hover {
+    background: #FC997C;
+    color: #fff;
+    border: 2px solid #000000;
+}
+
+.btn-secondary {
+    background: #2E4C6D;
+    color: #fff;
+    border: 2px solid #000000;
+}
+
+.btn-secondary:hover {
+    background: #fff;
+    color: #2E4C6D;
+    border: 2px solid #000000;
+}
+
+.btn-outline-secondary {
+    background: #fff;
+    color: #2E4C6D;
+    border: 2px solid #000000;
+}
+
+.btn-outline-secondary:hover {
+    background: #2E4C6D;
+    color: #fff;
+    border: 2px solid #000000;
+}

@@ -1,0 +1,201 @@
+.slider {
+    position: relative;
+    width: 80%;  /* Tam genişlik yerine belirli bir yüzdelik kullanımı */
+    margin: auto;
+    overflow: hidden;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+}
+
+.slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    flex-shrink: 0;  /* Her bir slaytın sabit kalmasını sağlar */
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.slide img {
+    width: 222px;  /* Görsel genişliği */
+    height: 332.97px;  /* Görsel yüksekliği */
+    object-fit: cover;
+    border: 2px solid #aaa;
+    border-radius: 5px;
+}
+
+.navigation {
+    display: flex; /* Flex düzeni */
+    justify-content: space-between; /* Düğmeleri sağa ve sola hizala */
+    position: absolute; /* Sabit pozisyon */
+    top: 50%; /* Dikeyde ortala */
+    transform: translateY(-50%); /* Ortalanmış */
+    width: 100%; /* Tam genişlik */
+    z-index: 1; /* Üst katman */
+}
+
+
+.nav-btn {
+    background: rgba(255, 255, 255, 0.7); /* Şeffaflık */
+    border: none; /* Kenarlık yok */
+    cursor: pointer; /* El işareti */
+    font-size: 1.5em; /* Buton boyutu */
+    padding: 0 10px; /* Yan boşluklar */
+    border-radius: 5px; /* Kenarların yuvarlatılması */
+}
+
+
+.indicators {
+    text-align: center;
+    margin-top: 10px;
+    z-index: 1;  /* Gösterge katmanı için */
+}
+
+.indicator {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: #ccc;
+    margin: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.indicator.active {
+    background: #555;  /* Aktif gösterge için koyu renk */
+}
+
+/* 0px - 767px arası mobil boyutlar */
+@media (max-width: 767px) {
+    .navigation {
+        display: none; /* Butonları gizler */
+    }
+    .slides {
+       
+        display: flex; /* Flex düzeni */
+        flex-direction: column; /* Dikey yönlendirme */
+        align-items: center; /* Yatayda ortala */
+        justify-content: center; /* Dikeyde ortala */
+    }
+
+    .slide {
+        display: flex; /* Flex düzeni */
+        flex-direction: column; /* Dikey yönlendirme */
+        align-items: center; /* Yatayda ortala */
+        justify-content: center; /* Dikeyde ortala */
+        padding: 15px; /* İç boşluk */
+        margin: 15px; /* Dış boşluk */
+        width: 100%; /* Tam genişlik */
+    }
+
+    .product {
+        flex-direction: column; /* Dikey yönlendirme */
+        align-items: center; /* Ortalanmış */
+        padding: 15px; /* İç boşluk */
+        margin: 15px; /* Dış boşluk */
+        width: 100%; /* Tam genişlik */
+    }
+
+    .product img {
+        width: 100%; /* Tam genişlik */
+        height: auto; /* Otomatik yükseklik */
+        object-fit: cover; /* Kesmeden doldur */
+    }
+
+    .product p {
+        text-align: center; /* Metin ortalanmış */
+    }
+}
+
+/* 768px - 991px arası tablet boyutları */
+@media (min-width: 768px) and (max-width: 991px) {
+    .navigation {
+        display: none; /* Butonları gizler */
+    }
+    .slides {
+        display: flex; /* Flex düzeni */
+        flex-direction: row; /* Yatay yönlendirme */
+        overflow-x: auto; /* Yatay kaydırma */
+        scroll-snap-type: x mandatory; /* Kaydırmayı kontrol eder */
+    }
+    
+    .slide {
+        flex-shrink: 0; /* Sabit genişlik */
+        width: 100%; /* Tam genişlik */
+        padding: 15px; /* İç boşluk */
+        margin: 15px; /* Dış boşluk */
+        scroll-snap-align: start; /* Slaytların hizalamasını kontrol eder */
+    }
+    
+    .product {
+        flex: 1; /* Eşit esneklik */
+        flex-direction: column; /* Dikey yönlendirme */
+        align-items: center; /* Ortalanmış */
+        padding: 15px; /* İç boşluk */
+        margin: 15px; /* Dış boşluk */
+    }
+    
+    .product img {
+        width: 222px; /* Sabit genişlik */
+        height: 333px; /* Sabit yükseklik */
+        object-fit: cover; /* Kesmeden doldur */
+    }
+    .product p {
+        text-align: center; /* Metin ortalanmış */
+    }
+}
+
+/* 944px'e kadar tabletler için */
+/* Mobil Cihazlar için Menüyü Görünür Kılma */
+@media (max-width: 767px) {
+    .menu-toggle {
+        display: inline-block; /* Hamburger butonunu göster */
+    }
+
+    .main-nav {
+        display: none; /* Mobil cihazlarda başlangıçta gizli */
+    }
+
+    .menu-open .main-nav {
+        display: block; /* Menü açıldığında göster */
+    }
+
+    .main-nav__items {
+        flex-direction: column; /* Dikey yönlendirme */
+        align-items: center; /* Yatayda ortala */
+        justify-content: flex-start; /* Dikeyde baştan hizala */
+        padding: 20px; /* İç boşluk */
+    }
+
+    .main-nav__item {
+        margin-bottom: 10px; /* Öğeler arasında boşluk */
+    }
+
+    .main-header {
+        text-align: center; /* Başlıkları ortala */
+    }
+
+
+
+    .product {
+        display: flex; /* Flex düzeni */
+        flex-direction: column; /* Dikey yönlendirme */
+        align-items: center; /* Ortalanmış */
+        padding: 10px; /* İç boşluk */
+        margin: 10px; /* Dış boşluk */
+        max-width: 200px; /* Maksimum genişlik */
+    }
+
+    .product img {
+        width: 100%; /* Tam genişlik */
+        height: auto; /* Otomatik yükseklik */
+        object-fit: cover; /* Kesmeden doldur */
+    }
+}
+
+
+
