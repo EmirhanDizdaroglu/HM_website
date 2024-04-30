@@ -47,7 +47,19 @@ main {
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
+/* New etiketi için özel stil */
+.new-tag {
+    background-color: #ff5050; /* Canlı kırmızı renkte bir arka plan */
+    color: #ffffff; /* Beyaz yazı rengi */
+    font-size: 14px; /* Yazı büyüklüğü */
+    padding: 5px; /* İç boşluk */
+    border-radius: 5px; /* Köşeleri yuvarlatılmış */
+    position: relative; /* Konumlandırma için gereken stil */
+    top: -10px; /* Konumu yukarı kaydırmak için */
+    left: 10px; /* Konumu sağa kaydırmak için */
+    font-weight: bold; /* Kalın yazı */
+  }
+  
 
 @media (min-width: 576px) { 
     #showcase {
@@ -147,7 +159,7 @@ main {
 }
 
 .main-nav__item::before {
-    content: '\2022';
+    
     color: #fff;
 }
 
@@ -169,7 +181,7 @@ main {
 .icon-box i {
     color: #FC997C;
 }
-
+/*
 .features__left {
     background: 
     linear-gradient(to bottom, rgba(252, 153, 124, 0.2),rgba(250, 81, 30, 0.2)),
@@ -177,6 +189,7 @@ main {
     background-size: cover;
     background-position: top center;
 }
+*/
 
 .features__right {
     background-color: #edf5f7;

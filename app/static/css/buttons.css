@@ -10,22 +10,29 @@
     transition-duration: .6s
 }
 
+/* Normal buton stilleri */
 .btn-primary {
-    background: #E50010; /* Ana renk */
-    color: #fff; /* Metin rengi */
+    background: #fff; /* Ana renk */
+    color: #E50010; /* Metin rengi */
     border: 1px solid #E50010; /* Kenarlık */
-    border-radius: 15px; /* Köşeleri yuvarlaklaştırır */
-    padding: 7px 14px; /* Sabit iç boşluk */
-    transition: background 0.3s, color 0.3s; /* Yumuşak geçiş */
+    border-radius: 15px; /* Köşeleri yuvarlatır */
+    padding: 7px 14px; /* İç boşluk */
+    transition: background 0.3s, color 0.3s; /* Yumuşak geçişler */
 }
+
 
 .btn-primary:hover {
-    background: #ffffff; /* Hover rengi */
-    color: #E50010; /* Hover metin rengi */
-    border: 1px solid #E50010; /* Kenarlık aynı kalsın */
+    background: #E50010; /* Hover arka plan rengi */
+    color: #ffffff; /* Hover metin rengi */
+    border: 1px solid #E50010; /* Kenarlık */
 }
 
-
+/* Seçili buton için özel stil */
+.btn-primary.selected {
+    background: #E50010; /* Seçili arka plan rengi */
+    color: #ffffff; /* Metin rengi */
+    border: 1px solid #E50010; /* Kenarlık */
+}
 
 .btn-outline-primary {
     background: hsl(0, 0%, 100%);
@@ -40,15 +47,18 @@
 }
 
 .btn-secondary {
-    background: #2E4C6D;
-    color: #fff;
-    border: 2px solid #000000;
+    background: #E50010; /* Ana renk */
+    color: #fff; /* Metin rengi */
+    border: 1px solid #E50010; /* Kenarlık */
+    border-radius: 15px; /* Köşeleri yuvarlatır */
+    padding: 7px 14px; /* İç boşluk */
+    transition: background 0.3s, color 0.3s; /* Yumuşak geçişler */
 }
 
 .btn-secondary:hover {
-    background: #fff;
-    color: #2E4C6D;
-    border: 2px solid #000000;
+    background: #E50010; /* Hover arka plan rengi */
+    color: #ffffff; /* Hover metin rengi */
+    border: 1px solid #E50010; /* Kenarlık */
 }
 
 .btn-outline-secondary {

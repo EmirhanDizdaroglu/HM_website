@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Results</title>
+    
+    <link rel="stylesheet" href="../static/css/styles.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="../static/css/buttons.css">
+    <link rel="stylesheet" href="../static/css/slider.css">
+    <link rel="stylesheet" href="../static/css/base.css">
+    <!-- Diğer stil dosyalarınızı ekleyin -->
+    <style>
+        
+    .container {
+        display: flex;
+        width: 100%;
+        box-sizing: border-box;  /* Boşlukları kontrol etmek için border-box */
+    }
+    
+    .sidebar {
+        flex: 0 0 20%;  /* Sabit genişlik için flex-basis */
+        background: #f5f5f5;
+        padding: 15px;  /* Daha fazla dolgu */
+    }
+    
+    .sidebar h3 {
+        margin-bottom: 10px;
+    }
+    
+    .sidebar ul {
+        list-style-type: none;  /* Nokta veya rakam içermeyen liste */
+        padding: 0;
+    }
+    
+    .sidebar ul li {
+        margin-bottom: 10px;
+    }
+    
+    .sidebar ul li a {
+        text-decoration: none;  /* Alt çizgiyi kaldır */
+        color: #333;
+        transition: color 0.3s;
+    }
+    
+    .sidebar ul li a:hover {
+        color: #e50010;  /* Hover rengi */
+    }
+    
+    .results {
+        flex: 1;  /* Otomatik genişleme için flex-grow */
+        padding: 10px;
+    }
+     /* Arama çubuğu için stil */
+     .search-bar {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            background: #f5f5f5;
+            border-radius: 5px;
+        }
+        
+        .search-bar input {
+            flex: 1;
+            border: 1px solid #ccc;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        
+        .search-bar button {
+            padding: 5px 10px;
+            background: #e50010;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .search-bar button:hover {
+            background: #d4000e;
+        }
+    
+   
+    
+    .product-list {
+        display: flex;
+        flex-wrap: wrap;  /* Ürünlerin sarılması */
+        justify-content: space-between;
+    }
+    
+    .product {
+        flex: 0 0 23%;  /* Ürün genişliği */
+        text-align: center;
+        padding: 15px;  /* Daha fazla dolgu */
+        background: #f0f0f0;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        height: 581px;  /* Sabit yükseklik */
+        transition: transform 0.3s;  /* Hover efekti için geçiş */
+    }
+    
+    .product img {
+        width: 100%;  /* Görüntü genişliği, ürün genişliğini geçmez */
+        height: auto;  /* Görüntü oranını korur */
+    }
+    
+    .product-info {
+        margin-top: 10px;  /* Daha fazla boşluk */
+        height: 80px;
+        overflow: hidden;  /* Aşırı akışı gizle */
+        text-overflow: ellipsis;  /* Ellipsis ile taşma */
+    }
+    
+    .product-info .product-name {
+        margin: 5px 0;  /* Dikey boşluk */
+    }
+    
+    .product-info .product-price {
+        font-weight: bold;  /* Kalın yazı */
+    }
+    
+    .product:hover {
+        transform: scale(1.05);  /* Hover efekti */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);  /* Hover gölgesi */
+    }
+    
+    /* Responsive Düzenlemeler */
+    @media (max-width: 768px) {
+        .product {
+            flex: 0 0 48%;  /* Küçük ekranlarda daha geniş */
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .product {
+            flex: 0 0 100%;  /* Çok küçük ekranlarda tam genişlik */
+        }
+    
+        .sidebar {
+            flex: 0 0 100%;  /* Sidebar'ı tam genişlikte yapar */
+            margin-bottom: 20px;  /* Yan yana boşluk için */
+        }
+    
+        .results {
+            flex: 1;  /* Results paneli genişlemeye devam eder */
+        }
+    }
+    /* Select öğesi için genel stil */
+    select {
+    border: 1px solid #ccc;  /* Kenar */
+    background: white;  /* Arka plan rengi */
+    color: #333;  /* Metin rengi */
+    padding: 5px 10px;  /* İç dolgu */
+    font-size: 14px;  /* Yazı tipi boyutu */
+    border-radius: 5px;  /* Köşeleri yuvarlatma */
+    transition: border-color 0.3s;  /* Kenar rengi geçişi */
+}
+
+/* Select öğesi hover ve odaklanma stili */
+select:hover,
+select:focus {
+    border-color: #e50010;  /* Hover ve odaklanma kenar rengi */
+}
+
+/* Option öğesi için genel stil */
+option {
+    color: #333;  /* Metin rengi */
+    font-size: 14px;  /* Yazı tipi boyutu */
+}
+
+/* Select öğesinin üst öğesinde yerleşim düzeltmeleri */
+.filters {
+    display: flex;
+    justify-content: flex-start;  /* Solda hizalama */
+    gap: 10px;  /* Filtreler arasında boşluk */
+    margin: 15px;
+}
+
+/* Filters bölümünde select öğesi */
+.filters select {
+    margin-right: 10px;  /* Sağ boşluk */
+}
+
+</style>    
+</head>
+<div class="container">
+    <!-- Sidebar (Kategoriler) -->
+    <div class="sidebar">
+        <h3>Kategoriler</h3>
+        <ul>
+            <li><a href="/all-products">Hepsi</a></li>
+            <li><a href="/search?category_id=1">Kadın</a></li>
+            <li><a href="/search?category_id=2">Erkek</a></li>
+            <li><a href="/search?category_id=3">Divided</a></li>
+            <li><a href="/search?category_id=4">Bebek</a></li>
+            <li><a href="/search?category_id=5">Çocuk</a></li>
+            <li><a href="/search?category_id=6">H&M HOME</a></li>
+            <li><a href="/search?category_id=7">Spor</a></li>
+        </ul>
+    </div>
+
+    <!-- Ana içerik -->
+    <div class="content">
+        <!-- Arama çubuğu -->
+        <div class="search-bar">
+            <form method="get" action="/search"> <!-- method='get' kullanın -->
+                <input type="text" id="search-box" name="query" placeholder="Search products..." />
+                <button type="submit">Search</button>
+            </form>
+        </div>
+        
+
+        <!-- Sağ Panel (Arama Sonuçları) -->
+        <div class="results">
+            <h2>
+                {% if request.args.get('category') %}
+                    Arama Sonuçları: "{{ request.args.get('category') }}"
+                {% elif request.args.get('query') %}
+                    Arama Sonuçları: "{{ request.args.get('query') }}"
+                {% else %}
+                    Tüm Ürünler
+                {% endif %}
+            </h2>
+
+            <!-- Filtreler -->
+            <div class="filters">
+                <label for="sort-order">Sırala:</label>
+                <select id="sort-order" name="sort-order" onchange="sortResults()">
+                    <option value="asc">Fiyat - Düşükten Yükseğe</option>
+                    <option value="desc">Fiyat - Yüksekten Düşüğe</option>
+                </select>
+                <label for="size-filter">Beden:</label>
+                <select id="size-filter" name="size-filter" onchange="filterBySize()">
+                    <option value="">Hepsi</option>
+                    <option value="S">S</option>
+                    <option value="M">M</option>
+                    <option value="L">L</option>
+                    <option value="XL">XL</option>
+                </select>
+            </div>
+
+            <!-- Arama Sonuçları -->
+            <div class="product-list">
+                {% if results %}
+                    {% for product in results %}
+                        <div class="product">
+                            <img src="{{ product[1] }}" alt="{{ product[0] }}">
+                            <div class="product-info">
+                                <p class="product-name">{{ product[0] }}</p>
+                                <p class="product-price">{{ product[2] }} TL</p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <p>Aradığınız ürün bulunamadı.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div> 
+    <!-- Diğer script dosyalarınızı ekleyin -->
+
+    <script>
+        function updateSearchURL(params = {}) {
+            let url = "/search"; // URL'yi başlatın
+            const queryParams = new URLSearchParams(params); // Parametreleri ekleyin
+        
+            if (queryParams.toString()) {
+                url += `?${queryParams.toString()}`; // URL'yi parametrelerle güncelleyin
+            }
+        
+            window.location.href = url; // URL'ye yönlendirin
+        }
+        
+        function sortResults() {
+            const sortOrder = document.getElementById("sort-order").value; // Sıralama değerini alın
+            const query = document.getElementById("search-box").value.trim(); // Arama kutusundan sorguyu alın
+            const category = "{{ request.args.get('category', '') }}"; // Kategoriyi alın
+        
+            updateSearchURL({ sort: sortOrder, query, category }); // URL'yi güncelleyin
+        }
+        
+        function filterBySize() {
+            const size = document.getElementById("size-filter").value; // Boyut filtresini alın
+            const query = document.getElementById("search-box").value.trim(); // Arama kutusundan sorguyu alın
+            const category = "{{ request.args.get('category', '') }}"; // Kategoriyi alın
+        
+            updateSearchURL({ size, query, category }); // URL'yi güncelleyin
+        }
+        
+        document.getElementById("search-box").addEventListener("keyup", (e) => {
+            if (e.key === 'Enter') { // Enter tuşu basıldığında
+                const query = e.target.value.trim(); // Arama sorgusunu alın
+                const category = "{{ request.args.get('category', '') }}"; // Kategoriyi alın
+                updateSearchURL({ query, category }); // URL'yi güncelleyin
+            }
+        });
+        
+        // Kategori butonlarını dinleyin
+        document.querySelectorAll(".sidebar ul li a").forEach((link) => {
+            link.addEventListener("click", (e) => {
+                e.preventDefault();
+                const category = link.innerText.trim(); // Kategori adını alın
+                const query = document.getElementById("search-box").value.trim(); // Arama kutusundaki sorguyu alın
+                updateSearchURL({ category, query }); // URL'yi güncelleyin
+            });
+        });
+        </script>
+        
+    
+</body>
+</html>

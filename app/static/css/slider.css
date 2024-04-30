@@ -49,25 +49,23 @@
 
 
 .indicators {
-    text-align: center;
-    margin-top: 10px;
-    z-index: 1;  /* Gösterge katmanı için */
-}
-
-.indicator {
-    display: inline-block;
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background: #ccc;
-    margin: 5px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.indicator.active {
-    background: #555;  /* Aktif gösterge için koyu renk */
-}
+    text-align: center; 
+    padding: 10px; 
+  }
+  
+  .indicator {
+    display: inline-block; 
+    width: 10px; 
+    height: 10px; 
+    border-radius: 50%; 
+    background: #ccc;  
+    margin: 5px; 
+    cursor: pointer; 
+  }
+  
+  .indicator.active {
+    background: #555; 
+  }
 
 /* 0px - 767px arası mobil boyutlar */
 @media (max-width: 767px) {
