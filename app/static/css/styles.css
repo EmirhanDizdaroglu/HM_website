@@ -205,6 +205,38 @@ main {
 .features__right h3 {
     font-size: 3rem;
 }
+/* Gezinme çubuğu için temel stiller */
+.nav-right {
+    display: flex; /* Flexbox düzeni */
+    justify-content: flex-end; /* İçeriği sağa hizala */
+    align-items: center; /* Elemanları orta hizala */
+    gap: 10px; /* Arama kutusu ile düğme arasında boşluk */
+}
+
+/* Arama kutusu stilleri */
+#search-box {
+    height: 36px; /* Arama kutusunun yüksekliği */
+    padding: 8px; /* İç kenar boşlukları */
+    border: 1px solid #ccc; /* Gri çerçeve */
+    border-radius: 4px; /* Yuvarlatılmış köşeler */
+    font-size: 16px; /* Yazı tipi boyutu */
+    color: #333; /* Yazı rengi */
+    outline: none; /* Odaklanıldığında çerçeve kaldır */
+}
+
+/* Arama düğmesi stilleri */
+#search-btn {
+    height: 36px; /* Düğmenin yüksekliği */
+    padding: 8px 16px; /* Düğmenin iç kenar boşlukları */
+    background-color: #E50010; /* Mavi arka plan */
+    color: white; /* Beyaz yazı */
+    border: none; /* Çerçeve yok */
+    border-radius: 4px; /* Yuvarlatılmış köşeler */
+    cursor: pointer; /* İmleç şekli */
+    transition: background-color 0.3s; /* Arka plan renginin yavaşça değişmesi */
+}
+
+
 
 .section-title {
     text-align: center;

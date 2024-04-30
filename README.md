@@ -78,3 +78,20 @@ Search Results: The left panel contains categories, and the right panel contains
 Price Sorting and Size Filtering: Price sorting and size filtering features.
 
 This README file explains the purpose of the project, installation and working steps, project structure, and features.
+
+### project info
+
+Veri tabanında kıyafet bedenleri için bir tablo oluşturuldu ve bu tablo S, M, L, XL bilgilerini saklıyor. Bir ürünün birden fazla bedeni olduğu için ara tablo yapılmalıdır.
+
+her bir ürün için S,M,L,XL özellikleri python kodu ile rastgele dağıtıldı. Bu sayede her bir ürünün bazı bedenleri mevcut bazıları ise olmayacak.
+Terminal çıktısı:
+```bash
+INSERT INTO product_sizes (product_id, size_id) VALUES (156, 2);
+INSERT INTO product_sizes (product_id, size_id) VALUES (156, 3);
+INSERT INTO product_sizes (product_id, size_id) VALUES (157, 2);
+```
+
+veri tabanını kontrol ettiğimizde görünmüyorsa bunu yapabiliriz.
+```bash
+pip install mysql-connector-python
+```

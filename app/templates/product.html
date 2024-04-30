@@ -1,0 +1,11 @@
+<!-- Ürün listesi -->
+<ul>
+    {% for product in products %}
+    <li>
+        <a href="{{ url_for('product_detail', product_id=product['id']) }}">
+            <img src="{{ product['image'] }}" alt="{{ product['name'] }}">
+            <span>{{ product['name'] }}</span> - <span>{{ product['price'] }}</span>
+        </a>
+    </li>
+    {% endfor %}
+</ul>

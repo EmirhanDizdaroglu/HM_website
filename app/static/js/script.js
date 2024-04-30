@@ -56,7 +56,6 @@ productDiv.innerHTML = `
   <br>${product.price} TL
 `;
 
-
           slidesContainer.lastChild.appendChild(productDiv);
         });
 
