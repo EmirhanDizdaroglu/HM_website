@@ -8,7 +8,7 @@ To run the project, follow these steps:
 
 ## google drive
 
-https://drive.google.com/uc?id=1iOKeBBNKZfPtYz-qwKaRMZH-0hiyFNYN&export=download
+https://drive.google.com/file/d/1iOKeBBNKZfPtYz-qwKaRMZH-0hiyFNYN/view?usp=sharing
 
 ## 1. Clone Repository
 ```bash
