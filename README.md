@@ -6,10 +6,15 @@ This project is a web application developed using Python and Flask. The applicat
 
 To run the project, follow these steps:
 
+## google drive
+
+https://drive.google.com/uc?id=1iOKeBBNKZfPtYz-qwKaRMZH-0hiyFNYN&export=download
+
 ## 1. Clone Repository
 ```bash
 git clone https://github.com/EmirhanDizdaroglu/hm_project.git
 go to the directory with cd project
+
 ```
 
 ## 2. Activate the Virtual Environment
